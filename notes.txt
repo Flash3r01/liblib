@@ -1,0 +1,12 @@
+NEEDS:
+- Define shape of entries for completions
+- Components/Helpers to display entries
+  - Composable components (Some sites might use labels, some not)
+- Searching/Filtering entries
+  - (Query is part of URL)
+- Support labels for entries by default
+- Documentation
+
+WANTS:
+- Support for hierarchical labels/key-value labels (e.g. music/techno)
+- Support for automatically creating routes for entries
