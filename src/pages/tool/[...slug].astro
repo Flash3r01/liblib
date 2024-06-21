@@ -1,0 +1,15 @@
+---
+import { getCollection } from 'astro:content';
+
+export async function getStaticPaths() {
+  const tools = await getCollection('tool');
+  const a = tools.map((tool) => ({
+    params: { slug: tool.id },
+    props: { tool },
+  }));
+  return a;
+}
+
+const { tool } = Astro.props;
+---
+<p>{JSON.stringify(tool)}</p>
