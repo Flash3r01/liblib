@@ -1,5 +1,7 @@
 ---
 import { getCollection } from 'astro:content';
+import Details from '../../components/Details.astro';
+import BaseLayout from '../../layouts/BaseLayout.astro';
 
 export async function getStaticPaths() {
   const tools = await getCollection('tool');
@@ -12,4 +14,7 @@ export async function getStaticPaths() {
 
 const { tool } = Astro.props;
 ---
-<p>{JSON.stringify(tool)}</p>
+
+<BaseLayout title={"More about " + tool.data.name}>
+  <Details toolEntry={tool} />
+</BaseLayout>
