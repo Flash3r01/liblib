@@ -1,0 +1,25 @@
+---
+import { Image } from "astro:assets";
+import astroLogo from "/src/images/astro-logo.png";
+---
+
+<div>
+  <div class="flex flex-row gap-4">
+    <div class="min-w-[200px] w-[15vw] aspect-square bg-black flex rounded-lg">
+      <Image src={astroLogo} alt="Astro logo" class="object-contain" />
+    </div>
+    <div>
+      <h2 class="text-5xl mb-3">Tool name</h2>
+      <p>Tool label1, Tool label2, Tool label3</p>
+      <p>⭐⭐⭐⭐⭐</p>
+      <p class="text-sm contrast-100">Tool links</p>
+      <p class="text-sm contrast-100">Added on: 2024-06-21</p>
+    </div>
+  </div>
+  <div>
+    <h3 class="text-2xl mb-2 mt-5">Description</h3>
+    <p>This tool allows you to do X.</p>
+    <h3 class="text-2xl mb-2 mt-5">Notes</h3>
+    <p>It is a great tool for achieving Y. I do not like it for Z.</p>
+  </div>
+</div>
