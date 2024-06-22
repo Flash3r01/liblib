@@ -1,7 +1,7 @@
 name: Astro
-tags: []
+tags: [ui_framework, web]
 rating: 4
 links:
   - [Website, https://astro.build]
   - [GitHub, https://github.com/withastro/astro]
-creationDate: 2024-06-21
+created: 2024-06-21

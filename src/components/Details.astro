@@ -1,15 +1,19 @@
 ---
 import { Image } from "astro:assets";
 import astroLogo from "/src/images/astro-logo.png";
-import type { CollectionEntry } from "astro:content";
 import { maxRating } from "../contants";
+import { getEntries } from "astro:content";
+import Tag from "./Tag.astro";
+import type { CollectionEntry } from "astro:content";
 
 interface Props {
   toolEntry: CollectionEntry<"tool">;
 }
 
 const { toolEntry } = Astro.props;
-const { name, creationDate, links, rating } = toolEntry.data;
+const { name, created, links, rating, tags } = toolEntry.data;
+
+const tagEntries = await getEntries(tags);
 ---
 
 <div>
@@ -19,12 +23,12 @@ const { name, creationDate, links, rating } = toolEntry.data;
     </div>
     <div>
       <h2 class="text-5xl mb-3">{name}</h2>
-      <p>Tool label1, Tool label2, Tool label3</p>
+      <div class="flex gap-2">{tagEntries.map((tagEntry) => <Tag tagEntry={tagEntry} />)}</div>
       <p class="text-yellow-500 text-xl">{"★".repeat(rating) + "☆".repeat(maxRating - rating)}</p>
       <div class="flex text-sm contrast-100 gap-2">
         {links.map(([text, href]) => <a href={href}>{text}</a>)}
       </div>
-      <p class="text-sm contrast-100">Added on: {creationDate.toISOString().split('T')[0]}</p>
+      <p class="text-sm contrast-100">Added on: {created.toISOString().split('T')[0]}</p>
     </div>
   </div>
   <div>

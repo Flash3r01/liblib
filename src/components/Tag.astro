@@ -1,0 +1,12 @@
+---
+import type { CollectionEntry } from 'astro:content';
+
+interface Props {
+  tagEntry: CollectionEntry<"tag">;
+}
+
+const { tagEntry } = Astro.props;
+const { name, color } = tagEntry.data;
+---
+
+<span style={`background-color: ${color}`} class="text-sm text-white rounded-full px-2 py-1">{name}</span>
