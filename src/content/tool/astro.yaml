@@ -4,4 +4,6 @@ rating: 4
 links:
   - [Website, https://astro.build]
   - [GitHub, https://github.com/withastro/astro]
+description: description_astro
+notes: notes_astro
 created: 2024-06-21

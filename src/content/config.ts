@@ -10,6 +10,8 @@ const toolCollection = defineCollection({
       .min(minRating, `Rating must be higher or equal to ${minRating}`)
       .max(maxRating, `Rating must be less than or equal to ${maxRating}`),
     links: z.array(z.array(z.string()).length(2, "Links must be an array of display name and URL")),
+    description: reference("text"),
+    notes: reference("text"),
     created: z.date(),
   }),
 })
@@ -24,7 +26,16 @@ const tagCollection = defineCollection({
   }),
 })
 
+const textCollection = defineCollection({
+  type: "content",
+  schema: z.object({
+    created: z.date(),
+    updated: z.date(),
+  })
+})
+
 export const collections = {
   tool: toolCollection,
   tag: tagCollection,
+  text: textCollection,
 }
